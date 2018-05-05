@@ -1,3 +1,2 @@
-var x =1;
-
-const arr= [1,2,3];
+x = ath.floor(Math.random() * (10 - 2) + 2);
+console.log(x)

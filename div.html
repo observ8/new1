@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <style>
+        .outer{
+            width: 340px;
+            height: 300px;
+            background-color: #cccccc;
+            position: relative;
+           
+        }
+        .inner{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+        }
+        
+.myover:hover::after{
+    content: "hello";
+
+}
+    </style>
+</head>
+<body>
+    <div>   <div class="outer">
+            <div class="inner">
+    
+            </div>
+        </div></div>
+        <div>
+            hello
+        </div>
+ <br><br>
+
+ <div class="myover">
+      my
+
+ </div>
+</body>
+</html>
