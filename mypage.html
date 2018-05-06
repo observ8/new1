@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+  
+
+   .ondelete:hover::after {
+  content: " <<- delete ";
+}
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="todothing" id="todotext">
+        <br>
+        <input type="button" value="add to do" class="submit" onclick="Addtodo()">
+    </div>
+
+    <ul id="objhtml">
+
+    </ul>
+
+
+    <script>
+
+        let TODOlist = {
+        }
+
+
+        let count = 0;
+
+
+        function Loopobj() {
+            //let  innerht;
+            var string = " ";
+            var tcount = 0;
+            for (let property in TODOlist) {
+                tcount++;
+                var string = string + "<li class='ondelete' onclick='Deleteob(" + tcount + ")'> " + TODOlist[property] + "</li>";
+            }
+            document.getElementById("objhtml").innerHTML = string;
+        }
+
+        function Addtodo() {
+            count++;
+            vartodo = document.getElementById("todotext").value;
+            TODOlist[count] = vartodo;
+
+            console.log(TODOlist);
+            Loopobj();
+
+        }
+
+        function Deleteob(some) {
+            this.some = some;
+            // alert(some)
+            delete TODOlist[some];
+            console.log(TODOlist);
+            Loopobj();
+        }
+
+
+
+//         let serobj = JSON.stringify(myobj);
+// localStorage.setItem("localitem",serobj)
+//localStorage.setItem("localitem2","this is test newwww");
+        // console.log(localStorage);
+        // localStorage.clear();
+        // console.log(localStorage);
+    </script>
+</body>
+
+</html>
