@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+  
+
+   .ondelete:hover::after {
+   
+content: " <<- delete ";
+}
+.ondelete {
+    font-size: 19px; 
+   
+}
+    </style>
+</head>
+
+<body>
+    <h1>to do list</h1>
+    <div>
+        <input type="text" name="todothing" id="todotext" style="font-size: 15px; padding: 10px; margin-bottom:12px ">
+        <br>
+        <input type="button" value="+ Add to do" class="submit" onclick="createlist()" style="font-size: 15px; padding: 10px;">
+    </div>
+
+    <ul id="objhtml" >
+
+    </ul>
+
+
+    <script>
+
+ 
+        mytodo = {};
+        let count=0;
+
+
+function loopp(){
+
+    var tcount = 0;
+var string = " ";
+  for (let property in mytodo) {
+
+                var string = string + "<li class='ondelete' onclick='Deleteob(" + Object.keys(mytodo)[tcount] + ")'> " + mytodo[property] + "</li>";
+                tcount++;
+            }
+            document.getElementById("objhtml").innerHTML = string;
+}
+
+     function createlist() {
+        count++;
+        vartodo = document.getElementById("todotext").value;
+//const mytodo = new Ctodolist(vartodo);
+mytodo[count]=vartodo;
+console.log(mytodo);
+loopp();
+
+
+        }    
+
+
+  function Deleteob(some) {
+            this.some = some;
+          
+            delete mytodo[some];
+            console.log(mytodo);
+            loopp();
+         
+        }
+      
+    </script>
+</body>
+
+</html>
