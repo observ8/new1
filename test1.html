@@ -8,15 +8,62 @@
   
 </head>
 <body>
-this is <caption>xx</caption>
-    this is a 
-    sdsdsdbvcb
 
-my name is here
-    <span></span>
 
-    more here
-    and  here
-    and here
+
+    <script>
+var startweek = 18;
+var endweek = 26;
+var weeksarray = [];
+
+while(startweek < endweek+1){
+    weeksarray.push(startweek++);
+}
+// alert(weeksarray);
+// weeksarray = [18 , 19, 20, 21, 22, 23, 24, 25, 26];
+//80 overall
+// no more tha  10 per week
+// month 5 , 6 --> may june
+
+function dateofweekcheck (day, month, truemonth) {
+    text= "";
+    while ( month < 5 ) {
+     text += "The number is " + month;
+
+    month++;
+}
+alert(text);
+}
+///dateofweekcheck(1 , 0, 4);
+function getDateOfWeek(w, y) {
+    var d = (1 + (w - 1) * 7); // 1st of January + 7 days for each week
+    ttime= new Date(y, 0, d);
+    var d = new Date();
+    var mo = ttime.getMonth()+1;
+    var n = ttime.getDate();
+    alert(n +" - "+mo);
+}
+getDateOfWeek(18, 2018);
+
+Date.prototype.getWeek = function () {
+    var target  = new Date(this.valueOf());
+    var dayNr   = (this.getDay() + 6) % 7;
+    target.setDate(target.getDate() - dayNr + 3);
+    var firstThursday = target.valueOf();
+    target.setMonth(0, 1);
+    if (target.getDay() != 4) {
+        target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
+    }
+    return 1 + Math.ceil((firstThursday - target) / 604800000);
+}
+
+var d2= new Date();
+var mycurrentweek = d2.getWeek();
+console.log(mycurrentweek);
+
+
+
+
+    </script>
 </body>
 </html>
