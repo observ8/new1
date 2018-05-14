@@ -8,20 +8,24 @@
   
 <body>
 <nav>
-   <a href="hello">hello</a>
+<ul>
+    <li>hello</li>
+    <li class="new1">the button</li>
+    <li id="newlink">link1</li>
+    <li> links</li>
+</ul>
+
+
 
 </nav>
-<div class="div">
 
-    test again
+<script>
+    
+    var btn=document.querySelector('.new1');
+    alert(btn);
+    btn.addEventListener("mouseover",function(){ btn.innerHTML="CLICKED HERE "});
+    btn.addEventListener("mouseout",function(){ btn.innerHTML="the button"});
+</script>
 
-    extra change
-</div>
-
-<div class="footer">
-    footer here
-    new footer
-
-</div>
 </body>
 </html>
